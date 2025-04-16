@@ -1,0 +1,23 @@
+# Check if Playnite is running in Fullscreen or Desktop mode
+if ($PlayniteApi.ApplicationInfo.Mode -eq "Fullscreen") {
+    # Path to the WAV file for Fullscreen mode (replace with your own file)
+    $wavPath = "C:\Path\To\Your\FullscreenSound.wav"
+
+    # Load .NET assembly for sound support
+    Add-Type -AssemblyName System.Windows.Forms
+
+    # Create the SoundPlayer and play the WAV file for Fullscreen mode
+    $player = New-Object System.Media.SoundPlayer $wavPath
+    $player.PlaySync()
+}
+elseif ($PlayniteApi.ApplicationInfo.Mode -eq "Desktop") {
+    # Path to the WAV file for Desktop mode (replace with your own file)
+    $wavPath = "C:\Path\To\Your\DesktopSound.wav"
+
+    # Load .NET assembly for sound support
+    Add-Type -AssemblyName System.Windows.Forms
+
+    # Create the SoundPlayer and play the WAV file for Desktop mode
+    $player = New-Object System.Media.SoundPlayer $wavPath
+    $player.PlaySync()
+}
